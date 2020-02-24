@@ -1,0 +1,7 @@
+{{#each this.grid as |row|}}
+  <div class="row">
+    {{#each row as |cell|}}
+      <div class="cell {{to-lower (cell-type cell)}}">&nbsp;</div>
+    {{/each}}
+  </div>
+{{/each}}

@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+@cell-size: 5px;
+
+@plains: #fff39c;
+@water: #6cc8ff;
+@forest: #439d57;
+
+.row {
+  display: flex;
+  height: @cell-size;
+
+  .cell {
+    display: inline-block;
+
+    width: @cell-size;
+    height: @cell-size;
+
+    &.forest {
+      background-color: @forest;
+    }
+    &.water {
+      background-color: @water;
+    }
+    &.plains {
+      background-color: @plains;
+    }
+  }
+}
