@@ -15,9 +15,9 @@ class CubeCoord extends GameModel {
   }
 
   adjacentCoords() {
-    const x = this.get("x");
-    const y = this.get("y");
-    const z = this.get("z");
+    const x = this.x;
+    const y = this.y;
+    const z = this.z;
 
     return [
       CubeCoord.fromCube(x - 1, y + 1, z),
@@ -30,9 +30,9 @@ class CubeCoord extends GameModel {
   }
 
   distanceFrom(other) {
-    const dx = Math.abs(this.get("x") - other.get("x"));
-    const dy = Math.abs(this.get("y") - other.get("y"));
-    const dz = Math.abs(this.get("z") - other.get("z"));
+    const dx = Math.abs(this.x - other.x);
+    const dy = Math.abs(this.y - other.y);
+    const dz = Math.abs(this.x - other.z);
 
     const manhattanDistance = dx + dy + dz;
 

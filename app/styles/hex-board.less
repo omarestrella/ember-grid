@@ -4,11 +4,13 @@
   padding-bottom: 50px;
 
   .grid {
-    // &.zoom-0 { zoom: 133.33%; }
-    // &.zoom-1 { zoom: 100%; }
-    // &.zoom-2 { zoom: 66.66%; }
-    // &.zoom-3 { zoom: 50%; }
-    // &.zoom-4 { zoom: 33.3%; }
+    &.zoom-0,
+    &.zoom-1,
+    &.zoom-2,
+    &.zoom-3,
+    &.zoom-4 {
+      transform-origin: top left;
+    }
 
     &.zoom-0 {
       transform: scale(1.3333);

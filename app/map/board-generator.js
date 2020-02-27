@@ -5,6 +5,9 @@ import CubeCoord from "../models/local/cube-coord";
 const rand = {
   bool: (weight = 0.5) => {
     return Math.random() < weight;
+  },
+  range: (max, min) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 };
 
@@ -46,7 +49,7 @@ export default {
   setCubeCoords(grid) {
     for (let row = 0; row < grid.length; row++) {
       for (let col = 0; col < grid[row].length; col++) {
-        grid[row][col].cord = CubeCoord.fromRowCol(row, col);
+        grid[row][col].coord = CubeCoord.fromRowCol(row, col);
       }
     }
   },
@@ -86,7 +89,7 @@ export default {
   },
 
   randomizeHexes(board) {
-    const grid = board.get("grid");
+    const grid = board.grid;
     const width = Math.min(grid.length, grid[0].length);
     const midPoint = Math.floor(width / 2);
     const breakOverThreshold = midPoint * 0.5;
@@ -156,8 +159,8 @@ export default {
     grid[0].forEach(hexChecker);
     grid[grid.length - 1].forEach(hexChecker);
     grid.forEach(row => {
-      hexChecker(row.get("firstObject"));
-      hexChecker(row.get("lastObject"));
+      hexChecker(row[0]);
+      hexChecker(row[0]);
     });
 
     while (queue.length > 0) {
@@ -265,7 +268,7 @@ export default {
   },
 
   addSecondaryResourceNodes(board) {
-    board.get("grid").forEach(row =>
+    board.grid.forEach(row =>
       row.forEach(hex => {
         const neighbors = this.getNeighbors(hex, board);
         const forest = this.countNeighbors(neighbors, "forest");
@@ -278,7 +281,7 @@ export default {
           secondary === 0 &&
           forest <= 2
         ) {
-          hex.set("type", "resource-secondary");
+          hex.type = "resource-secondary";
         }
       })
     );
@@ -291,7 +294,7 @@ export default {
   countNeighbors(neighbors, type) {
     let count = 0;
     neighbors.forEach(hex => {
-      if (hex && hex.get("type") === type) {
+      if (hex && hex.type === type) {
         count++;
       }
     });

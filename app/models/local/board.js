@@ -12,7 +12,7 @@ export default class extends GameModel {
   lookupHex({ x, y, z }) {
     const col = x + (z + (z & 1)) / 2;
     const row = z;
-    const grid = this.get("grid");
+    const grid = this.grid;
 
     if (grid && grid.hasOwnProperty(row)) {
       return grid[row][col];

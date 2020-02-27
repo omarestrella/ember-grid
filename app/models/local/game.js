@@ -57,20 +57,20 @@ export default class extends GameModel {
     if (active !== hex) {
       this.deactivateHex(active);
       this.activateHex(hex);
-      this.set("activeHex", hex);
+      this.activeHex = hex;
     } else {
       this.deactivateHex(hex);
-      this.set("activeHex", null);
+      this.activeHex = null;
     }
   }
 
   activateHex(hex) {
     if (hex) {
-      hex.set("state", "active");
+      hex.state = "active";
       hex.coord.adjacentCoords().forEach(coord => {
         const adjacentHex = this.board.lookupHex(coord);
         if (adjacentHex) {
-          adjacentHex.set("state", "secondary");
+          adjacentHex.state = "secondary";
         }
       });
     }
@@ -78,11 +78,11 @@ export default class extends GameModel {
 
   deactivateHex(hex) {
     if (hex) {
-      hex.set("state", null);
+      hex.state = null;
       hex.coord.adjacentCoords().forEach(coord => {
         const adjacentHex = this.board.lookupHex(coord);
         if (adjacentHex) {
-          adjacentHex.set("state", null);
+          adjacentHex.state = "null";
         }
       });
     }

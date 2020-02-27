@@ -1,1 +1,19 @@
+<div class="board-size">
+  <label for="board-size">Board Size</label>
+  <select id="board-size" value="small" {{on "change" this.changeSize}}>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+</div>
+
+<div class="board-shape">
+  <label for="board-shape">Board Shape</label>
+  <select id="board-shape" value="random" {{on "change" this.changeShape}}>
+    <option value="random">Random</option>
+    <option value="hexagon">Hexagon</option>
+    <option value="square">Square</option>
+  </select>
+</div>
+
 <HexBoard @game={{this.game}}></HexBoard>
