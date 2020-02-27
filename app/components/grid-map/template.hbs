@@ -1,6 +1,8 @@
 <div class="controls">
   <label for="gridSize">Grid Size ({{this.size}}x{{this.size}})</label>
-  <input id="gridSize" type="range" value="{{size}}" min="10" max="75" {{on "change" this.setSize}}>
+  <input id="gridSize" type="range" value="{{this.size}}" min="10" max="75" {{on "change" this.setSize}}>
+  <br>
+  <button type="button" {{on "click" this.generateGrid}}>Generate grid</button>
 </div>
 
 {{#each this.grid as |row|}}

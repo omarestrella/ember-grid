@@ -1,0 +1,37 @@
+@import "hex-tile";
+
+.hex-board {
+  padding-bottom: 50px;
+
+  .grid {
+    // &.zoom-0 { zoom: 133.33%; }
+    // &.zoom-1 { zoom: 100%; }
+    // &.zoom-2 { zoom: 66.66%; }
+    // &.zoom-3 { zoom: 50%; }
+    // &.zoom-4 { zoom: 33.3%; }
+
+    &.zoom-0 {
+      transform: scale(1.3333);
+    }
+    &.zoom-1 {
+      transform: scale(1);
+    }
+    &.zoom-2 {
+      transform: scale(0.6666);
+    }
+    &.zoom-3 {
+      transform: scale(0.5);
+    }
+    &.zoom-4 {
+      transform: scale(0.3333);
+    }
+
+    .row {
+      display: flex;
+
+      &:nth-child(odd) {
+        margin-left: 53px;
+      }
+    }
+  }
+}

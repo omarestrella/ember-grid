@@ -8,19 +8,27 @@ export default class GridMap extends Component {
   @tracked
   size = 15;
 
-  constructor() {
-    super(...arguments);
+  @tracked
+  _grid = null;
 
-    console.log("Grid", this.grid);
+  @action
+  generateGrid() {
+    this.grid = generateGrid(this.size);
   }
 
   @action
   setSize(event) {
-    let size = parseInt(event.target.value, 10);
-    set(this, "size", size);
+    this.size = parseInt(event.target.value, 10);
   }
 
   get grid() {
-    return generateGrid(this.size);
+    this._grid = generateGrid(this.size);
+    console.log(this._grid);
+    return this._grid;
+  }
+
+  set grid(value) {
+    this._grid = value;
+    return this._grid;
   }
 }
