@@ -1,1 +1,7 @@
-<div class="hex-tile {{@hex.type}} {{@hex.state}}"></div>
+<div class="hex-tile {{@hex.type}} {{@hex.state}}">
+  {{#if this.style}}
+    <div class="img-container">
+      <span style="{{this.style}}"></span>
+    </div>
+  {{/if}}
+</div>

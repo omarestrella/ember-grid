@@ -60,6 +60,12 @@
   height: 60px;
   background-color: transparent;
 
+  image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges; /* Firefox                        */
+  image-rendering: -o-crisp-edges; /* Opera                          */
+  image-rendering: pixelated; /* Chrome                         */
+  -ms-interpolation-mode: nearest-neighbor;
+
   &:before {
     position: absolute;
     content: " ";
@@ -90,6 +96,13 @@
     border-radius: 50%;
     left: 32px;
     top: 10px;
+  }
+
+  .img-container {
+    position: absolute;
+    left: 5px;
+
+    zoom: 4;
   }
 
   .coordinate {

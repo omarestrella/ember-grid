@@ -3,7 +3,7 @@
     {{#each this.grid as |row|}}
       <div class="row">
         {{#each row as |hex|}}
-          <HexBoard::HexTile @hex={{hex}} @game={{@game}}></HexBoard::HexTile>
+          <HexBoard::HexTile @hex={{hex}} @game={{@game}} @sheet={{this.sheet}}></HexBoard::HexTile>
         {{/each}}
       </div>
     {{/each}}

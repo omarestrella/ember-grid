@@ -14,6 +14,8 @@
     <option value="hexagon">Hexagon</option>
     <option value="square">Square</option>
   </select>
+  &nbsp;
+  <button {{on "click" this.newGame}}>New Game</button>
 </div>
 
 <HexBoard @game={{this.game}}></HexBoard>

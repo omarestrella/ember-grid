@@ -49,7 +49,7 @@ export default class extends GameModel {
     };
   }
 
-  cardMarketCards = [];
+  spawnPlayers(numberOfPlayers = 2) {}
 
   /* Public Function API */
   clickHex(hex) {
